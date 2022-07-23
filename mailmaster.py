@@ -19,7 +19,6 @@ class fetcher():
 
             email_message = email.message_from_bytes(bytes_data)
             print("\n===========================================")
-
             print("Subject: ",email_message["subject"])
             print("From: ",email_message["from"])
             print("Date: ",email_message["date"])
