@@ -1,5 +1,8 @@
-from imap_tools import MailBox, AND
-server = "imap.gmail.com"
+import smtplib
+host = 'smtp.gmail.com'
+port = 465
+server = smtplib.SMTP_SSL(host, port)
+
 
 class fetcher():
 	def login(self, *credentials):
