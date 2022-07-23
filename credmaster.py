@@ -12,7 +12,10 @@ def get_creds():
 			env_file.write(login+'\n'+spec_mail+'\n'+atoken)
 	elif os.path.isfile('.env'):
 		with open('.env','r') as env_file:
-			login, spec_mail, atoken = env_file.read().split('\n')
+			creds = env_file.read().split('\n')
+			if '' in creds:
+				creds.remove('')
+			login, spec_mail, atoken = creds
 	return [login, atoken, spec_mail]
 
 if __name__ == '__main__':

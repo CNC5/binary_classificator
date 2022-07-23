@@ -7,7 +7,7 @@ import tensorflow as tf
 tfds.disable_progress_bar()
 
 
-def build_from_emails(train_dataset):
+def build_model(train_dataset):
 	VOCAB_SIZE = 1000
 	encoder = tf.keras.layers.experimental.preprocessing.TextVectorization(
 		max_tokens=VOCAB_SIZE)
@@ -16,7 +16,9 @@ def build_from_emails(train_dataset):
 	vocab[:20]
 
 	model = tf.keras.Sequential([
-		tf.keras.layers.Conv2D(input_shape = tf.data.AUTOTUNE, filters = tf.data.AUTOTUNE, kernel_size = (5, 5), activation = "relu"),
+		tf.keras.layers.Conv2D(input_shape = tf.data.AUTOTUNE, 
+			filters = tf.data.AUTOTUNE, kernel_size = (5, 5), 
+			activation = "relu"),
 		tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64)),
 		tf.keras.layers.Dense(64, activation='relu'),
 		tf.keras.layers.Dense(1)

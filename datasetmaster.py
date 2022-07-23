@@ -8,14 +8,16 @@ def generate():
 	ids = []
 	texts = []
 	credentials = credmaster.get_creds()
-	login, password, spec_mail = credentials
+	login, atoken, spec_mail = credentials
 	mailfetcher = mailmaster.fetcher()
-	mailfetcher.login(login, password)
+	mailfetcher.login(login, atoken)
 	messages = mailfetcher.fetch(spec_mail)
-	for msg in messages:
-		text = msg.text
+	mailfetcher.logout()
+	del mailfetcher
+	for message in messages:
+		text = message[1]
 		texts.append(text)
-		ids.append(int(msg.subject))
+		ids.append(int(message[0]))
 
 	ids = tf.cast(ids, tf.int64)
 	train_dataset = tf.data.Dataset.from_tensor_slices((texts,ids))
@@ -29,5 +31,6 @@ def generate():
 if __name__ == '__main__':
 	test_dataset = generate()
 	if test_dataset:
-		print('Dataset gen OK: ',type(test_dataset))
-
+		print('Dataset gen OK: ',type(test_dataset), '\n', test_dataset)
+	else:
+		print('Dataset gen failure')
