@@ -1,6 +1,7 @@
 import datasetmaster
 import netmaster
 from netmaster import binary_predictor
+import log
 
 
 def build():

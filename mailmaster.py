@@ -3,12 +3,14 @@ import email
 from email import header as hdr
 host= 'imap.gmail.com'
 server = imaplib.IMAP4_SSL(host)
+import log
 
 
 class fetcher():
     def login(self, *credentials):
        login, atoken = credentials
        server.login(login, atoken)
+       log.debug('mail server login complete')
 
     def fetch(self, spec_mail, mailbox="INBOX"):
         messages = []
@@ -19,24 +21,23 @@ class fetcher():
             _, bytes_data = data[0]
 
             email_message = email.message_from_bytes(bytes_data)
-            print("\n===========================================")
             subject = hdr.decode_header(email_message["subject"])
-            print("Subject: ",subject)
-            print("From: ",email_message["from"])
-            print("Date: ",email_message["date"])
             for part in email_message.walk():
                 if part.get_content_type()=="text/plain" or part.get_content_type()=="text/html":
                     message_raw = part.get_payload(decode=True)
                     text = message_raw.decode()
-                    print("Message: \n", text)
-                    print("==========================================\n")
                     messages.append([subject[0][0], text])
                     break
 
+        if messages:
+            log.debug('email messages fetching complete')
+        else:
+            log.warning('email messages empty')
         return messages
 
     def logout(self):
         server.logout()
+        log.debug('mail server logout complete')
 
 
 if __name__ == '__main__':

@@ -1,6 +1,8 @@
 import numpy as np
 import os
 import subprocess
+import log
+
 
 def get_creds():
 	if not(os.path.isfile('.env')):
