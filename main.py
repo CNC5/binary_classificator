@@ -1,6 +1,11 @@
 import datasetmaster
 import netmaster
+from netmaster import binary_predictor
 
-if __name__ == '__main__':
+
+def build():
 	dataset = datasetmaster.generate()
-	model = netmaster.build_model(dataset)
+	netmaster.build_model(dataset)
+
+if __name__=='__main__':
+	build()

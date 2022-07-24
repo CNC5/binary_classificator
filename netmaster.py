@@ -13,12 +13,14 @@ def build_model(train_dataset):
 		max_tokens=VOCAB_SIZE)
 	encoder.adapt(train_dataset.map(lambda text, label: text))
 	vocab = np.array(encoder.get_vocabulary())
-	vocab[:20]
+	print(vocab[:20])
 
 	model = tf.keras.Sequential([
-		tf.keras.layers.Conv2D(input_shape = tf.data.AUTOTUNE, 
-			filters = tf.data.AUTOTUNE, kernel_size = (5, 5), 
-			activation = "relu"),
+        encoder,
+        tf.keras.layers.Embedding(
+            input_dim=len(encoder.get_vocabulary()),
+            output_dim=64,
+            mask_zero=True),
 		tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64)),
 		tf.keras.layers.Dense(64, activation='relu'),
 		tf.keras.layers.Dense(1)
@@ -33,10 +35,16 @@ def build_model(train_dataset):
 		loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
 		optimizer=tf.keras.optimizers.Adam(1e-4),
 		metrics=['accuracy'],
-		run_eagerly=True)
+		run_eagerly=False)
 
-	try:
-		model.fit(train_dataset, epochs=int(input('Number of epochs: ')),callbacks=[cp_callback])
-	except KeyboardInterrupt:
-		print('Keyboard interrupt')
-	return model
+	model.fit(train_dataset, epochs=int(input('Number of epochs: ')),callbacks=[cp_callback])
+	model.predict(['text'])
+	model.save('models/full_model')
+
+
+class binary_predictor():
+	def __init__(self):
+		self.model = tf.keras.models.load_model('models/full_model')
+
+	def predict(self, text):
+		return self.model.predict([text])

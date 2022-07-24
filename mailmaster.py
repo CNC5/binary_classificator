@@ -30,7 +30,7 @@ class fetcher():
                     text = message_raw.decode()
                     print("Message: \n", text)
                     print("==========================================\n")
-                    messages.append([email_message["subject"], text])
+                    messages.append([subject[0][0], text])
                     break
 
         return messages
