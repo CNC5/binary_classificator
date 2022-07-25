@@ -15,9 +15,7 @@ setup(
     long_description=read('README.md'),
     install_requires=[
         'tensorflow',
-        'email',
         'numpy',
-        'imaplib',
         'setuptools'
     ]
 )
