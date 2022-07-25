@@ -1,5 +1,5 @@
 # Binary classificator
-Natural language binary classificator neural network with a wrapper
+Natural language binary classificator neural network with a wrapper.
 
 ## Author
 
@@ -27,8 +27,8 @@ To start, import the `binary_classificator` library.
     
 ### Building and fitting a model with dataset generated from emails
 
-First, emails must be marked with 1 or 0 in subject (folders implementation is is still being written)<br>
-All unread emails from inbox will be processed, so it is recommended to create a new gmail<br>
+First, emails must be marked with 1 or 0 in subject (folders implementation is is still being written).<br>
+All unread emails from inbox will be processed, so it is recommended to create a new gmail.<br>
 To get up and running use this:
 
     import binary_classificator
