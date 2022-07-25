@@ -27,9 +27,9 @@ To start, import the `binary_classificator` library.
     
 ### Building and fitting a model with dataset generated from emails
 
-First, emails must be marked with 1 or 0 in subject (folders implementation is is still being written)
-All emails from inbox will be processed, so it is recommended to create a new gmail
-To easily get up and running:
+First, emails must be marked with 1 or 0 in subject (folders implementation is is still being written)<br>
+All unread emails from inbox will be processed, so it is recommended to create a new gmail<br>
+To get up and running use this:
 
     import binary_classificator
     
