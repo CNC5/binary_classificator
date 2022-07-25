@@ -1,19 +1,20 @@
 import time
-loglevel = 3 #0-3 Error-Debug
+loglevel = 0 #0-3 Error-Debug
 
 
 def log(message, level):
 	if level <= loglevel:
-		print(f'[{time.time()}]', message)
+		t = time.time()
+		print(f'[{t:<20}]', message)
 
 def debug(message):
-	log(message, 3)
+	log('(DBG) '+message, 3)
 
 def info(message):
-	log(message, 2)
+	log('(INF) '+message, 2)
 
 def warning(message):
-	log(message, 1)
+	log('(WRN) '+message, 1)
 
 def error(message):
-	log(message, 0)
+	log('(ERR) '+message, 0)
