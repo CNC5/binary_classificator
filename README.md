@@ -12,7 +12,7 @@ Target OS: `GNU/Linux`
 ## Installation
 Required packages (auto installed):<br>
 
-    tensorflow numpy imaplib email
+    tensorflow numpy
 
 
 For now, installation is manual:<br>
