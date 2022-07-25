@@ -6,7 +6,7 @@ Natural language binary classificator neural network with a wrapper.
 * [CNC5](https://github.com/CNC5)
 
 ## Installation
-Required packages:<br>
+Required packages (installed with pip):<br>
 
     tensorflow numpy imaplib email
 
