@@ -35,7 +35,7 @@ To get up and running use this:
     
     binary_classificator.build()
 
-Which will ask you about your gmail credentials (saved to .env in ./) and some other preferences like email address to accet samples from, and after fetching will automatically start the build and then will save the full network (and some checkpoints) to ./models.
+Which will ask you about your gmail credentials (saved to .env in ./) and some other preferences like email address to accept samples from, and after fetching will automatically start the build and then will save the full network (and some checkpoints) to ./models.
 
 ### Making predictions
 To make a prediction use binary_classificator.binary_predictor class, and it's predict(str) method, which will return a float:
