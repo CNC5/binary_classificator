@@ -44,3 +44,5 @@ To make a prediction use binary_classificator.binary_predictor class, and it's p
     prediction = predictor.predict(str)
     
 
+### Logging
+Logging level is set in $PROJECT_ROOT/binary_classificator/log.py
