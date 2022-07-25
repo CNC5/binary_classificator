@@ -12,5 +12,12 @@ setup(
     license = "BSD-3",
     url = "https://github.com/CNC5/binary_classificator",
     packages=['binary_classificator'],
-    long_description=read('README.md')
+    long_description=read('README.md'),
+    install_requires=[
+        'tensorflow',
+        'email',
+        'numpy',
+        'imaplib',
+        'setuptools'
+    ]
 )
