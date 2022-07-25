@@ -5,6 +5,10 @@ Natural language binary classificator neural network with a wrapper.
 
 * [CNC5](https://github.com/CNC5)
 
+## OS
+Target architecture: x86_64
+Target OS: GNU/Linux
+
 ## Installation
 Required packages (can be installed with pip):<br>
 
