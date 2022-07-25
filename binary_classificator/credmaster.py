@@ -7,7 +7,7 @@ def get_creds():
 	if not(os.path.isfile('.env')):
 		print('\nLogin information file not found, creating one for you.')
 		login = input('Enter gmail box login(will be saved for further use)(example: example@gmail.com): ')
-		atoken = input('Enter access token: ')
+		atoken = input('Enter app password: ')
 		spec_mail = input('Specify email to accept samples from(necessary): ')
 		with open('.env','w') as env_file:
 			env_file.write(login+'\n'+spec_mail+'\n'+atoken)
