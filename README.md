@@ -10,7 +10,7 @@ Target architecture: `x86_64`<br>
 Target OS: `GNU/Linux`
 
 ## Installation
-Required packages (can be installed with pip):<br>
+Required packages (auto installed):<br>
 
     tensorflow numpy imaplib email
 
