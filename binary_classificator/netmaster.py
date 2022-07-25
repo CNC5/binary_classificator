@@ -6,7 +6,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow_datasets as tfds
 import tensorflow as tf
 tfds.disable_progress_bar()
-import log
+from . import log
 
 
 def build_model(train_dataset):

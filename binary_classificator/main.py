@@ -1,7 +1,7 @@
-import datasetmaster
-import netmaster
-from netmaster import binary_predictor
-import log
+from . import datasetmaster
+from . import netmaster
+from .netmaster import binary_predictor
+from . import log
 
 
 def build():

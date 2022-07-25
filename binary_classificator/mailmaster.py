@@ -3,7 +3,7 @@ import email
 from email import header as hdr
 host= 'imap.gmail.com'
 server = imaplib.IMAP4_SSL(host)
-import log
+from . import log
 
 
 class fetcher():

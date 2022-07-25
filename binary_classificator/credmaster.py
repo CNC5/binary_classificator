@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import subprocess
-import log
+from . import log
 
 
 def get_creds():
