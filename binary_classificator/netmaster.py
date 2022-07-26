@@ -16,11 +16,11 @@ def build_model(train_dataset):
 
 	log.debug('neural network model build started')
 	model = tf.keras.Sequential([
-        encoder,
-        tf.keras.layers.Embedding(
-            input_dim=len(encoder.get_vocabulary()),
-            output_dim=64,
-            mask_zero=True),
+                encoder,
+                tf.keras.layers.Embedding(
+                    input_dim=len(encoder.get_vocabulary()),
+                    output_dim=64,
+                    mask_zero=True),
 		tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64)),
 		tf.keras.layers.Dense(64, activation='relu'),
 		tf.keras.layers.Dense(1)
