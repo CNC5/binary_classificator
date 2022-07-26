@@ -1,6 +1,6 @@
 import numpy as np
 import os
-checkpoint_path = "models/cp.ckpt"
+checkpoint_path = 'models/cp.ckpt'
 checkpoint_dir = os.path.dirname(checkpoint_path)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
