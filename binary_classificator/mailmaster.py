@@ -1,7 +1,7 @@
 import imaplib
 import email
 from email import header as hdr
-host= 'imap.gmail.com'
+host = 'imap.gmail.com'
 server = imaplib.IMAP4_SSL(host)
 from . import log
 
@@ -31,9 +31,11 @@ class fetcher():
 
         if messages:
             log.debug('email messages fetching complete')
+            return messages
         else:
-            log.warning('email messages empty')
-        return messages
+            log.error('email messages empty')
+            quit()
+
 
     def logout(self):
         server.logout()
@@ -41,4 +43,4 @@ class fetcher():
 
 
 if __name__ == '__main__':
-    print('Module is not independent and will run only with credentials master')
+    log.error('can not run as a stand-alone script')
