@@ -47,11 +47,11 @@ Which will ask you about your gmail credentials (username, app password)(saved t
 It's also worth mentioning that the module was tested only with gmail and most likely will not work with any other email service.
 
 ### Making predictions
-To make a prediction use `binary_classificator.binary_predictor` class, and it's `predict(str)` method, which will return a float:
+To make a prediction use `binary_classificator.netmaster.binary_predictor` class, and it's `predict(str)` method, which will return a float:
 
-    predictor = binary_classificator.binary_predictor()
+    predictor = binary_classificator.create_predictor()
     prediction = predictor.predict(str)
-    
+
 
 ### Logging
 Logging level is set in $PROJECT_ROOT/binary_classificator/log.py

@@ -48,14 +48,20 @@ def build_model(train_dataset):
 
 
 class binary_predictor():
-	def __init__(self):
-		if os.path.isdir('models'):
-			self.model = tf.keras.models.load_model('models/full_model')
-			log.debug('neural network model loaded')
-		else:
-			log.error('models folder not found')
+	def __init__(self, model):
+		self.model = model
+		log.debug('neural network model loaded')
 
 	def predict(self, text):
 		prediction = self.model.predict([text])
 		log.debug('prediction done')
 		return prediction[0][0]
+
+
+def create_predictor():
+	if os.path.isdir('models'):
+		model = tf.keras.models.load_model('models/full_model')
+		return binary_predictor(model)
+	else:
+		log.error('models folder not found')
+		raise FileNotFoundError

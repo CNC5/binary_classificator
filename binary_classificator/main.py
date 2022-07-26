@@ -1,6 +1,6 @@
 from . import datasetmaster
 from . import netmaster
-from .netmaster import binary_predictor
+from .netmaster import create_predictor
 from . import log
 
 
