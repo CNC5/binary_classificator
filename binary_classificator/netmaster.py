@@ -64,4 +64,4 @@ def create_predictor():
 		return binary_predictor(model)
 	else:
 		log.error('models folder not found')
-		raise FileNotFoundError
+		raise FileNotFoundError('models folder not found')
